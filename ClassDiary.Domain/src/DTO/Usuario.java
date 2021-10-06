@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DTO;
 
-/**
- *
- * @author paran
- */
-public class Usuario {
-    
+import java.util.Date;
+
+public class Usuario 
+{
+    private int _id;
+    private String _nomeCompleto;
+    private String _telefone;
+    private String _email;
+    private String _nomeLogin;
+    private String _senha;
+    private String _cargo;
+    private String _postoTrabalho;
+    private Date _dataHora;
 }

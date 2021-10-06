@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DTO;
 
-/**
- *
- * @author paran
- */
-public class Curso {
-    
+import java.util.List;
+
+public class Curso 
+{
+    private int _id;
+    private String _nome;
+    private List<Disciplina> _disciplinas;
 }
