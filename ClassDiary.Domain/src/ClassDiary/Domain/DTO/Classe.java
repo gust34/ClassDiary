@@ -1,4 +1,4 @@
-package DTO;
+package ClassDiary.Domain.DTO;
 
 public class Classe 
 {

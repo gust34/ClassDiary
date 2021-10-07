@@ -1,4 +1,4 @@
-package DTO;
+package ClassDiary.Domain.DTO;
 
 import java.util.Date;
 
