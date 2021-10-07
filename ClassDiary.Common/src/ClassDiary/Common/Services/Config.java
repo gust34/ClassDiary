@@ -1,4 +1,4 @@
-package ClassDiary.Domain.DTO;
+package ClassDiary.Common.Services;
 
 public class Config 
 {
