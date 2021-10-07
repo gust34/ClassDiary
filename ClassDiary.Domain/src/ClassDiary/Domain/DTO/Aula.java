@@ -1,6 +1,6 @@
 package ClassDiary.Domain.DTO;
 
-public class Classe 
+public class Aula 
 {
     private int _id;
     private int _usuarioId;
