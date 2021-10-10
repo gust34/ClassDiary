@@ -4,6 +4,8 @@ import ClassDiary.Common.Services.ConfigReader;
 import ClassDiary.Common.Services.Config;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -47,6 +49,38 @@ public class ManageDB
             try 
             {
                 conn.close();
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(ManageDB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void CloseConnection(Connection conn, PreparedStatement stmt)
+    {
+        CloseConnection(conn);
+        if(stmt != null)
+        {
+            try 
+            {
+                stmt.close();
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(ManageDB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public void CloseConnection(Connection conn, PreparedStatement stmt, ResultSet result)
+    {
+        CloseConnection(conn, stmt);
+        if(result != null)
+        {
+            try 
+            {
+                result.close();
             } 
             catch (SQLException ex) 
             {
