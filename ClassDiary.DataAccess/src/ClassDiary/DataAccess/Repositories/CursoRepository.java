@@ -42,7 +42,7 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
                 
                 e.setId(result.getInt("id_curso"));
                 e.setNome(result.getString("nome_curso"));
-                e.setDisciplinas(repo.GetAll());
+                e.setDisciplinas(repo.GetByCurso(e.getId()));
             }
             
             Context.CloseConnection(conn, stmt, result);
@@ -78,7 +78,7 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
                 
                 e.setId(result.getInt("id_curso"));
                 e.setNome(result.getString("nome_curso"));
-                e.setDisciplinas(repo.GetAll());
+                e.setDisciplinas(repo.GetByCurso(e.getId()));
                 es.add(e);
             }
             

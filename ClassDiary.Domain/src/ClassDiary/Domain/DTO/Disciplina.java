@@ -4,6 +4,36 @@ public class Disciplina
 {
     private int _id;
     private String _nome;
+    private int _idCurso;
+    private Curso _curso;
+    
+    /**
+     * @return the _idCurso
+     */
+    public int getIdCurso() {
+        return _idCurso;
+    }
+
+    /**
+     * @param _idCurso the _idCurso to set
+     */
+    public void setIdCurso(int _idCurso) {
+        this._idCurso = _idCurso;
+    }
+
+    /**
+     * @return the _curso
+     */
+    public Curso getCurso() {
+        return _curso;
+    }
+
+    /**
+     * @param _curso the _curso to set
+     */
+    public void setCurso(Curso _curso) {
+        this._curso = _curso;
+    }
     /**
      * @return the _id
      */

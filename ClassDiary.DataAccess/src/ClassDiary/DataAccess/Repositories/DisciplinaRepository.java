@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
 {
     ManageDB Context = new ManageDB();
+    CursoRepository repo = new CursoRepository();
     
     @Override
     public Disciplina Get(int Id) 
@@ -28,7 +29,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
         {
             stmt = conn.prepareStatement("SELECT "
                     + "id_disciplina, "
-                    + "nome_disciplina, "
+                    + "nome_disciplina,"
+                    + "id_curso "
                     + "FROM Disciplina "
                     + "WHERE id_disciplina = ?");
             stmt.setInt(1, Id);
@@ -41,6 +43,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
                 
                 e.setId(result.getInt("id_disciplina"));
                 e.setNome(result.getString("nome_disciplina"));
+                e.setIdCurso(result.getInt("id_curso"));
+                e.setCurso(repo.Get(e.getIdCurso()));
             }
             
             Context.CloseConnection(conn, stmt, result);
@@ -65,7 +69,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
         {
             stmt = conn.prepareStatement("SELECT "
                     + "id_disciplina, "
-                    + "nome_disciplina, "
+                    + "nome_disciplina,"
+                    + "id_curso "
                     + "FROM Disciplina ");
             
             result = stmt.executeQuery();
@@ -76,6 +81,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
                 
                 e.setId(result.getInt("id_disciplina"));
                 e.setNome(result.getString("nome_disciplina"));
+                e.setIdCurso(result.getInt("id_curso"));
+                e.setCurso(repo.Get(e.getIdCurso()));
                 
                 es.add(e);
             }
@@ -90,4 +97,43 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
         return es;
     }
     
+    public List<Disciplina> GetByCurso(int cursoId) 
+    {
+        Connection conn = Context.GetConnection();
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+        List<Disciplina> es = null;
+        
+        try 
+        {
+            stmt = conn.prepareStatement("SELECT "
+                    + "id_disciplina, "
+                    + "nome_disciplina,"
+                    + "id_curso "
+                    + "FROM Disciplina "
+                    + "WHERE id_curso = ?");
+            stmt.setInt(1, cursoId);
+            
+            result = stmt.executeQuery();
+            
+            while(result.next())
+            {
+                Disciplina e = new Disciplina();
+                
+                e.setId(result.getInt("id_disciplina"));
+                e.setNome(result.getString("nome_disciplina"));
+                e.setIdCurso(result.getInt("id_curso"));
+                
+                es.add(e);
+            }
+            
+            Context.CloseConnection(conn, stmt, result);
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(AulaRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return es;
+    }
 }
