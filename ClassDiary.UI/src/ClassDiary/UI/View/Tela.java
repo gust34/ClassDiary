@@ -102,7 +102,7 @@ public class Tela extends javax.swing.JFrame
         user = Auth.Logar(cxLogin.getText(), cxSenha.getText()); 
         if(user != null)
         {
-            home tela = new home();
+            home tela = new home(user);
             tela.setVisible(true);
             dispose();
         }
