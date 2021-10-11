@@ -7,3 +7,11 @@
 /ClassDiary.UI/build/
 /ClassDiary.UI/dist/
 /ClassDiary.Business/nbproject/private/
+/ClassDiary.Business/build/
+/ClassDiary.Domain/build/
+/ClassDiary.DataAccess/build/
+/ClassDiary.Common/build/
+/ClassDiary.Domain/dist/
+/ClassDiary.Common/dist/
+/ClassDiary.DataAccess/dist/
+/ClassDiary.Business/dist/

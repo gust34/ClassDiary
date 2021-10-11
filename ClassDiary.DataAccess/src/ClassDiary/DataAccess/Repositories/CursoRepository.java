@@ -15,11 +15,12 @@ import java.util.logging.Logger;
 public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
 {
     ManageDB Context = new ManageDB();
-    DisciplinaRepository repo = new DisciplinaRepository();
+    DisciplinaRepository repo;
     
     @Override
     public Curso Get(int Id) 
     {
+        repo = new DisciplinaRepository();
         Connection conn = Context.GetConnection();
         PreparedStatement stmt = null;
         ResultSet result = null;
@@ -58,6 +59,7 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
     @Override
     public List<Curso> GetAll() 
     {
+        repo = new DisciplinaRepository();
         Connection conn = Context.GetConnection();
         PreparedStatement stmt = null;
         ResultSet result = null;

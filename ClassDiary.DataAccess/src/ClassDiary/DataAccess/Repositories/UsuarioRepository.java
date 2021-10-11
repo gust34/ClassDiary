@@ -14,8 +14,14 @@ import java.util.logging.Logger;
 
 public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
 {
-    ManageDB Context = new ManageDB();
-    DisciplinaRepository repo = new DisciplinaRepository();
+    ManageDB Context;
+    DisciplinaRepository repo;
+    
+    public UsuarioRepository()
+    {
+        Context = new ManageDB();
+        repo = new DisciplinaRepository();
+    }
     
     @Override
     public Usuario Get(int Id) 

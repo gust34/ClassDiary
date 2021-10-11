@@ -1,14 +1,18 @@
 [
     {
-        "Key" : "",
-        "Value" : ""
+        "Key" : "Drive",
+        "Value" : "com.mysql.jdbc.Driver"
     },
     {
-        "Key" : "",
-        "Value" : ""
+        "Key" : "Url",
+        "Value" : "jdbc:mysql://planoensino.mysql.uhserver.com/planoensino"
     },
     {
-        "Key" : "",
-        "Value" : ""
+        "Key" : "User",
+        "Value" : "professorescola"
+    },
+    {
+        "Key" : "Pass",
+        "Value" : "@Rescolar2021"
     }
 ]
