@@ -1,14 +1,23 @@
 package ClassDiary.UI.View;
 
+import ClassDiary.Business.Services.GetEntitiesService;
 import ClassDiary.Domain.DTO.Aula;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 
 public class Cadastro extends javax.swing.JFrame {
 
+    GetEntitiesService getService;
     Aula aula;
+    
     public Cadastro(int UsuarioId) {
         initComponents();
+        
+        getService = new GetEntitiesService();
         aula = new Aula();
         aula.setUsuarioId(UsuarioId);
+        DefaultComboBoxModel cmbCursoModel = new DefaultComboBoxModel(getService.GetCursos().toArray());
+        cmbCurso.setModel(cmbCursoModel);
     }
 
 
@@ -16,9 +25,9 @@ public class Cadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        curso = new javax.swing.JComboBox<>();
-        semestre = new javax.swing.JComboBox<>();
-        disciplina = new javax.swing.JComboBox<>();
+        cmbCurso = new javax.swing.JComboBox<>();
+        cmbSemestre = new javax.swing.JComboBox<>();
+        cmbDisciplina = new javax.swing.JComboBox<>();
         jRadioButton1 = new javax.swing.JRadioButton();
         btGravar = new javax.swing.JButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -37,17 +46,17 @@ public class Cadastro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        curso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        curso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Selecione um Curso >", "Analise e Desenvolvimento de Sistemas", "Sistemas de Informação" }));
-        getContentPane().add(curso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 390, 20));
+        cmbCurso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cmbCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Selecione um Curso >", "Analise e Desenvolvimento de Sistemas", "Sistemas de Informação" }));
+        getContentPane().add(cmbCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 390, 20));
 
-        semestre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        semestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione o Semestre >", "1º Semestre", "2º Semestre", "3º Semestre", "4º Semestre", "5º Semestre", "6º Semestre", "7º Semestre", "8º Semestre" }));
-        getContentPane().add(semestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 180, -1));
+        cmbSemestre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cmbSemestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione o Semestre >", "1º Semestre", "2º Semestre", "3º Semestre", "4º Semestre", "5º Semestre", "6º Semestre", "7º Semestre", "8º Semestre" }));
+        getContentPane().add(cmbSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 180, -1));
 
-        disciplina.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        disciplina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Selecione a Disciplina >", "Ánalise e Projeto de Sistemas", "Banco de Dados", "Desenvolvimento de Aplicações Web", "Inovação Dispurtiva ", "Linguagem de Programação Orientada a Objetos" }));
-        getContentPane().add(disciplina, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 600, -1));
+        cmbDisciplina.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cmbDisciplina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Selecione a Disciplina >", "Ánalise e Projeto de Sistemas", "Banco de Dados", "Desenvolvimento de Aplicações Web", "Inovação Dispurtiva ", "Linguagem de Programação Orientada a Objetos" }));
+        getContentPane().add(cmbDisciplina, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 600, -1));
 
         jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -127,8 +136,9 @@ public class Cadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btGravar;
-    private javax.swing.JComboBox<String> curso;
-    private javax.swing.JComboBox<String> disciplina;
+    private javax.swing.JComboBox<String> cmbCurso;
+    private javax.swing.JComboBox<String> cmbDisciplina;
+    private javax.swing.JComboBox<String> cmbSemestre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -142,6 +152,5 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JComboBox<String> semestre;
     // End of variables declaration//GEN-END:variables
 }

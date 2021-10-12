@@ -32,7 +32,7 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
                     + "id_disciplina, "
                     + "nome_disciplina,"
                     + "id_curso "
-                    + "FROM Disciplina "
+                    + "FROM disciplina "
                     + "WHERE id_disciplina = ?");
             stmt.setInt(1, Id);
             
@@ -73,7 +73,7 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
                     + "id_disciplina, "
                     + "nome_disciplina,"
                     + "id_curso "
-                    + "FROM Disciplina ");
+                    + "FROM disciplina ");
             
             result = stmt.executeQuery();
             
@@ -112,7 +112,7 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
                     + "id_disciplina, "
                     + "nome_disciplina,"
                     + "id_curso "
-                    + "FROM Disciplina "
+                    + "FROM disciplina "
                     + "WHERE id_curso = ?");
             stmt.setInt(1, cursoId);
             

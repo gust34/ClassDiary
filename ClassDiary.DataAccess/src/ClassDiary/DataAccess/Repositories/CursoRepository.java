@@ -30,8 +30,8 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
         {
             stmt = conn.prepareStatement("SELECT "
                     + "id_curso, "
-                    + "nome_curso, "
-                    + "FROM Curso "
+                    + "nome_curso "
+                    + "FROM curso "
                     + "WHERE id_curso = ?");
             stmt.setInt(1, Id);
             
@@ -69,8 +69,8 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
         {
             stmt = conn.prepareStatement("SELECT "
                     + "id_curso, "
-                    + "nome_curso, "
-                    + "FROM Curso ");
+                    + "nome_curso "
+                    + "FROM curso ");
             
             result = stmt.executeQuery();
             

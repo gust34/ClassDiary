@@ -37,7 +37,7 @@ public class AulaRepository implements IRepositoryBase<Aula>
                     + "conteudoSagah, "
                     + "conteudoDesenvolvido, "
                     + "linkDaAulaGravada "
-                    + "FROM Aula "
+                    + "FROM aula "
                     + "WHERE id_class = ?");
             stmt.setInt(1, Id);
             
@@ -90,7 +90,7 @@ public class AulaRepository implements IRepositoryBase<Aula>
                     + "conteudoSagah, "
                     + "conteudoDesenvolvido, "
                     + "linkDaAulaGravada "
-                    + "FROM Aula ");
+                    + "FROM aula ");
             
             result = stmt.executeQuery();
             
@@ -131,7 +131,7 @@ public class AulaRepository implements IRepositoryBase<Aula>
         
         try 
         {
-            stmt = conn.prepareStatement("INSERT INTO Aula "
+            stmt = conn.prepareStatement("INSERT INTO aula "
                     + "(usuario_id, "
                     + "id_curso, "
                     + "semestre, "
@@ -173,7 +173,7 @@ public class AulaRepository implements IRepositoryBase<Aula>
         
         try 
         {
-            stmt = conn.prepareStatement("UPDATE Aula SET "
+            stmt = conn.prepareStatement("UPDATE aula SET "
                     + "usuario_id = ?, "
                     + "id_curso = ?, "
                     + "semestre = ?, "
@@ -216,7 +216,7 @@ public class AulaRepository implements IRepositoryBase<Aula>
         
         try 
         {
-            stmt = conn.prepareStatement("DELETE FROM Aula "
+            stmt = conn.prepareStatement("DELETE FROM aula "
                     + "WHERE id_class = ?");
             stmt.setInt(1, Id);
             
