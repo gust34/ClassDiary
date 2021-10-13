@@ -6,7 +6,6 @@ import ClassDiary.Common.Services.Result;
 import ClassDiary.Domain.DTO.Aula;
 import ClassDiary.Domain.DTO.Curso;
 import ClassDiary.Domain.DTO.Disciplina;
-import java.text.ParseException;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.DefaultComboBoxModel;
@@ -59,6 +58,7 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtUA = new javax.swing.JTextField();
+        btVoltar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,7 +105,7 @@ public class Cadastro extends javax.swing.JFrame {
                 btGravarActionPerformed(evt);
             }
         });
-        getContentPane().add(btGravar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 240, 40));
+        getContentPane().add(btGravar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 570, 240, 40));
 
         rbtnNoturno.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rbtnNoturno);
@@ -166,6 +166,18 @@ public class Cadastro extends javax.swing.JFrame {
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 50, 20));
         getContentPane().add(txtUA, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 230, -1));
 
+        btVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        btVoltar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/back.png"))); // NOI18N
+        btVoltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 620, 240, 40));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/background.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 680));
 
@@ -203,6 +215,10 @@ public class Cadastro extends javax.swing.JFrame {
     private void cmbSemestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSemestreActionPerformed
         AtualizarCmbDisciplina();
     }//GEN-LAST:event_cmbSemestreActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btVoltarActionPerformed
 
     private void AtualizarCmbDisciplina()
     {
@@ -253,6 +269,7 @@ public class Cadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btGravar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cmbCurso;
