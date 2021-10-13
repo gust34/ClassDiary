@@ -65,14 +65,15 @@ public class Cadastro extends javax.swing.JFrame {
 
         btGravar.setBackground(new java.awt.Color(255, 255, 255));
         btGravar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btGravar.setText("Gravar");
+        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/btngravaraula.png"))); // NOI18N
+        btGravar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
         btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
             }
         });
-        getContentPane().add(btGravar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 600, 130, 30));
+        getContentPane().add(btGravar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 240, 40));
 
         jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
