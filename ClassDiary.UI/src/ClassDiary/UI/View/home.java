@@ -27,6 +27,8 @@ public class home extends javax.swing.JFrame {
         jToggleButton2 = new javax.swing.JToggleButton();
         jLabel3 = new javax.swing.JLabel();
         lbNome = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -35,12 +37,13 @@ public class home extends javax.swing.JFrame {
         jToggleButton2.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/btnaddaula.png"))); // NOI18N
+        jToggleButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 210, 252), 8, true));
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 230, 50));
+        getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 240, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/AddClass.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 130, 140));
@@ -51,6 +54,13 @@ public class home extends javax.swing.JFrame {
         lbNome.setText("Olá");
         getContentPane().add(lbNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 170, 40));
         lbNome.getAccessibleContext().setAccessibleName("lbNome");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/view.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
+
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/btnView.png"))); // NOI18N
+        jToggleButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 213, 252), 8, true));
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 240, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/background2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 710));
@@ -99,7 +109,9 @@ public class home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lbNome;
     // End of variables declaration//GEN-END:variables
