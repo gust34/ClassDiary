@@ -140,4 +140,9 @@ public class Usuario
         this._dataHora = _dataHora;
     }
 
+    @Override
+    public String toString()
+    {
+        return getNomeCompleto();
+    }
 }

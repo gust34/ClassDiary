@@ -2,7 +2,9 @@ package ClassDiary.UI.View;
 
 import ClassDiary.Business.Services.GetEntitiesService;
 import ClassDiary.Domain.DTO.Aula;
-import java.util.Vector;
+import ClassDiary.Domain.DTO.Curso;
+import ClassDiary.Domain.DTO.Disciplina;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 public class Cadastro extends javax.swing.JFrame {
@@ -25,6 +27,8 @@ public class Cadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         cmbCurso = new javax.swing.JComboBox<>();
         cmbSemestre = new javax.swing.JComboBox<>();
         cmbDisciplina = new javax.swing.JComboBox<>();
@@ -48,6 +52,11 @@ public class Cadastro extends javax.swing.JFrame {
 
         cmbCurso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cmbCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Selecione um Curso >", "Analise e Desenvolvimento de Sistemas", "Sistemas de Informação" }));
+        cmbCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCursoActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmbCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 390, 20));
 
         cmbSemestre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -56,9 +65,11 @@ public class Cadastro extends javax.swing.JFrame {
 
         cmbDisciplina.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cmbDisciplina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Selecione a Disciplina >", "Ánalise e Projeto de Sistemas", "Banco de Dados", "Desenvolvimento de Aplicações Web", "Inovação Dispurtiva ", "Linguagem de Programação Orientada a Objetos" }));
+        cmbDisciplina.setEnabled(false);
         getContentPane().add(cmbDisciplina, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 600, -1));
 
         jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jRadioButton1.setText("Matutino");
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
@@ -75,6 +86,7 @@ public class Cadastro extends javax.swing.JFrame {
         getContentPane().add(btGravar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 600, 130, 30));
 
         jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jRadioButton2.setText("Noturno");
         getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
@@ -89,10 +101,12 @@ public class Cadastro extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup2.add(jRadioButton3);
         jRadioButton3.setText("Sim");
         getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
 
         jRadioButton4.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup2.add(jRadioButton4);
         jRadioButton4.setText("Não");
         getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, -1));
 
@@ -124,6 +138,26 @@ public class Cadastro extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btGravarActionPerformed
 
+    private void cmbCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCursoActionPerformed
+        Curso cursoSelected = (Curso) cmbCurso.getSelectedItem();
+        
+        List<Disciplina> disciplinasByCurso = cursoSelected.getDisciplinas();
+        if(!disciplinasByCurso.isEmpty())
+        {
+            DefaultComboBoxModel cmbDisciplinaModel = new DefaultComboBoxModel(disciplinasByCurso.toArray());
+            cmbDisciplina.setModel(cmbDisciplinaModel);
+            cmbDisciplina.setEnabled(true);
+        }
+        else
+        {
+            String[] DisciplinaLimpa = new String[1];
+            DisciplinaLimpa[0] = "Selecione um curso";
+            DefaultComboBoxModel cmbDisciplinaModel = new DefaultComboBoxModel(DisciplinaLimpa);
+            cmbDisciplina.setModel(cmbDisciplinaModel);
+            cmbDisciplina.setEnabled(false);
+        }
+    }//GEN-LAST:event_cmbCursoActionPerformed
+
     
     public static void main(String args[]) {
         
@@ -136,6 +170,8 @@ public class Cadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btGravar;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cmbCurso;
     private javax.swing.JComboBox<String> cmbDisciplina;
     private javax.swing.JComboBox<String> cmbSemestre;

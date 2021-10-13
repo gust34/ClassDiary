@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,8 +66,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
         Connection conn = Context.GetConnection();
         PreparedStatement stmt = null;
         ResultSet result = null;
-        List<Disciplina> es = null;
-        
+        ArrayList<Disciplina> es;
+        es = new ArrayList<>();
         try 
         {
             stmt = conn.prepareStatement("SELECT "
@@ -104,7 +105,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
         Connection conn = Context.GetConnection();
         PreparedStatement stmt = null;
         ResultSet result = null;
-        List<Disciplina> es = null;
+        ArrayList<Disciplina> es;
+        es = new ArrayList<>();
         
         try 
         {

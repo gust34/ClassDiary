@@ -61,4 +61,10 @@ public class Disciplina
     public void setNome(String _nome) {
         this._nome = _nome;
     }
+    
+    @Override
+    public String toString()
+    {
+        return getNome();
+    }
 }

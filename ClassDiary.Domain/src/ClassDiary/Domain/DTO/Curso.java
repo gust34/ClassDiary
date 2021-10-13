@@ -49,4 +49,10 @@ public class Curso
     public void setDisciplinas(List<Disciplina> _disciplinas) {
         this._disciplinas = _disciplinas;
     }
+    
+    @Override
+    public String toString()
+    {
+        return getNome();
+    }
 }
