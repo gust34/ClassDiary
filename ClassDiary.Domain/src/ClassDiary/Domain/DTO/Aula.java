@@ -1,5 +1,7 @@
 package ClassDiary.Domain.DTO;
 
+import java.util.Date;
+
 public class Aula 
 {
     private int _id;
@@ -14,6 +16,7 @@ public class Aula
     private boolean _conteudoSagah;
     private String _conteudoDesenvolvido;
     private String _linkDaAulaGravada;
+    private Date _data;
 
     /**
      * @return the _id
@@ -167,6 +170,20 @@ public class Aula
      */
     public void setLinkDaAulaGravada(String _linkDaAulaGravada) {
         this._linkDaAulaGravada = _linkDaAulaGravada;
+    }
+
+    /**
+     * @return the _data
+     */
+    public Date getData() {
+        return _data;
+    }
+
+    /**
+     * @param _data the _data to set
+     */
+    public void setData(Date _data) {
+        this._data = _data;
     }
     
     

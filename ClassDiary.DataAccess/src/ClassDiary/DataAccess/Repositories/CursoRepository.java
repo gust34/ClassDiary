@@ -31,7 +31,8 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
         {
             stmt = conn.prepareStatement("SELECT "
                     + "id_curso, "
-                    + "nome_curso "
+                    + "nome_curso, "
+                    + "qtd_semestres "
                     + "FROM curso "
                     + "WHERE id_curso = ?");
             stmt.setInt(1, Id);
@@ -44,6 +45,7 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
                 
                 e.setId(result.getInt("id_curso"));
                 e.setNome(result.getString("nome_curso"));
+                e.setQtdSemestre(result.getInt("qtd_semestres"));
                 e.setDisciplinas(repo.GetByCurso(e.getId()));
             }
             
@@ -71,7 +73,8 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
         {
             stmt = conn.prepareStatement("SELECT "
                     + "id_curso, "
-                    + "nome_curso "
+                    + "nome_curso, "
+                    + "qtd_semestres "
                     + "FROM curso ");
             
             result = stmt.executeQuery();
@@ -82,6 +85,7 @@ public class CursoRepository implements IRepositoryBaseReadOnly<Curso>
                 
                 e.setId(result.getInt("id_curso"));
                 e.setNome(result.getString("nome_curso"));
+                e.setQtdSemestre(result.getInt("qtd_semestres"));
                 e.setDisciplinas(repo.GetByCurso(e.getId()));
                 es.add(e);
             }

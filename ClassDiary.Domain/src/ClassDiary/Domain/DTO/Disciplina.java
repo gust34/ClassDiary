@@ -6,6 +6,7 @@ public class Disciplina
     private String _nome;
     private int _idCurso;
     private Curso _curso;
+    private int _semestre;
     
     /**
      * @return the _idCurso
@@ -66,5 +67,19 @@ public class Disciplina
     public String toString()
     {
         return getNome();
+    }
+
+    /**
+     * @return the _semestre
+     */
+    public int getSemestre() {
+        return _semestre;
+    }
+
+    /**
+     * @param _semestre the _semestre to set
+     */
+    public void setSemestre(int _semestre) {
+        this._semestre = _semestre;
     }
 }

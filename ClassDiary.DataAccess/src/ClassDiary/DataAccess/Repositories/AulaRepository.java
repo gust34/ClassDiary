@@ -5,9 +5,11 @@ import ClassDiary.DataAccess.Core.IRepositoryBase;
 import ClassDiary.DataAccess.Core.ManageDB;
 import ClassDiary.Domain.DTO.Aula;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -199,13 +201,14 @@ public class AulaRepository implements IRepositoryBase<Aula>
             result = stmt.execute();
             
             Context.CloseConnection(conn, stmt);
+            return Result.Sucesso;
         } 
         catch (SQLException ex) 
         {
             Logger.getLogger(AulaRepository.class.getName()).log(Level.SEVERE, null, ex);
+            return Result.Erro;
         }
         
-        return result ? Result.Sucesso : Result.Erro;
     }
 
     @Override

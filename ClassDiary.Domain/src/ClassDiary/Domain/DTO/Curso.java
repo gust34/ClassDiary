@@ -7,6 +7,7 @@ public class Curso
     private int _id;
     private String _nome;
     private List<Disciplina> _disciplinas;
+    private int _qtdSemestre;
 
     /**
      * @return the _id
@@ -54,5 +55,19 @@ public class Curso
     public String toString()
     {
         return getNome();
+    }
+
+    /**
+     * @return the _qtdSemestre
+     */
+    public int getQtdSemestre() {
+        return _qtdSemestre;
+    }
+
+    /**
+     * @param _qtdSemestre the _qtdSemestre to set
+     */
+    public void setQtdSemestre(int _qtdSemestre) {
+        this._qtdSemestre = _qtdSemestre;
     }
 }

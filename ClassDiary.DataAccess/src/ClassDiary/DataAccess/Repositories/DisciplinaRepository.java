@@ -32,7 +32,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
             stmt = conn.prepareStatement("SELECT "
                     + "id_disciplina, "
                     + "nome_disciplina,"
-                    + "id_curso "
+                    + "id_curso,"
+                    + "semestre "
                     + "FROM disciplina "
                     + "WHERE id_disciplina = ?");
             stmt.setInt(1, Id);
@@ -46,6 +47,7 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
                 e.setId(result.getInt("id_disciplina"));
                 e.setNome(result.getString("nome_disciplina"));
                 e.setIdCurso(result.getInt("id_curso"));
+                e.setSemestre(result.getInt("semestre"));
                 e.setCurso(repo.Get(e.getIdCurso()));
             }
             
@@ -73,7 +75,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
             stmt = conn.prepareStatement("SELECT "
                     + "id_disciplina, "
                     + "nome_disciplina,"
-                    + "id_curso "
+                    + "id_curso, "
+                    + "semestre "
                     + "FROM disciplina ");
             
             result = stmt.executeQuery();
@@ -85,6 +88,7 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
                 e.setId(result.getInt("id_disciplina"));
                 e.setNome(result.getString("nome_disciplina"));
                 e.setIdCurso(result.getInt("id_curso"));
+                e.setSemestre(result.getInt("semestre"));
                 e.setCurso(repo.Get(e.getIdCurso()));
                 
                 es.add(e);
@@ -113,7 +117,8 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
             stmt = conn.prepareStatement("SELECT "
                     + "id_disciplina, "
                     + "nome_disciplina,"
-                    + "id_curso "
+                    + "id_curso,"
+                    + "semestre "
                     + "FROM disciplina "
                     + "WHERE id_curso = ?");
             stmt.setInt(1, cursoId);
@@ -127,7 +132,7 @@ public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
                 e.setId(result.getInt("id_disciplina"));
                 e.setNome(result.getString("nome_disciplina"));
                 e.setIdCurso(result.getInt("id_curso"));
-                
+                e.setSemestre(result.getInt("semestre"));
                 es.add(e);
             }
             
