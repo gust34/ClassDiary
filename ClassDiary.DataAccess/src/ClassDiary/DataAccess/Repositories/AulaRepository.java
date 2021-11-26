@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 public class AulaRepository implements IRepositoryBase<Aula>
 {
-    ManageDB Context = new ManageDB();
+    ManageDB Context = new ManageDB(0);
     
     @Override
     public Aula Get(int Id) 
@@ -32,8 +32,6 @@ public class AulaRepository implements IRepositoryBase<Aula>
             stmt = conn.prepareStatement("SELECT "
                     + "id_class, "
                     + "usuario_id, "
-                    + "id_curso, "
-                    + "semestre, "
                     + "id_disciplina, "
                     + "periodo, "
                     + "unidadeDeAprendizagem, "
@@ -52,8 +50,6 @@ public class AulaRepository implements IRepositoryBase<Aula>
                 
                 e.setId(result.getInt("id_class"));
                 e.setUsuarioId(result.getInt("usuario_id"));
-                e.setCursoId(result.getInt("id_curso"));
-                e.setSemestre(result.getInt("semestre"));
                 e.setDisciplinaId(result.getInt("id_disciplina"));
                 e.setPeriodo(result.getString("periodo"));
                 e.setUnidadeDeAprendizagem(result.getString("unidadeDeAprendizagem"));
@@ -85,8 +81,6 @@ public class AulaRepository implements IRepositoryBase<Aula>
             stmt = conn.prepareStatement("SELECT "
                     + "id_class, "
                     + "usuario_id, "
-                    + "id_curso, "
-                    + "semestre, "
                     + "id_disciplina, "
                     + "periodo, "
                     + "unidadeDeAprendizagem, "
@@ -103,8 +97,6 @@ public class AulaRepository implements IRepositoryBase<Aula>
                 
                 e.setId(result.getInt("id_class"));
                 e.setUsuarioId(result.getInt("usuario_id"));
-                e.setCursoId(result.getInt("id_curso"));
-                e.setSemestre(result.getInt("semestre"));
                 e.setDisciplinaId(result.getInt("id_disciplina"));
                 e.setPeriodo(result.getString("periodo"));
                 e.setUnidadeDeAprendizagem(result.getString("unidadeDeAprendizagem"));
@@ -136,24 +128,20 @@ public class AulaRepository implements IRepositoryBase<Aula>
         {
             stmt = conn.prepareStatement("INSERT INTO aula "
                     + "(usuario_id, "
-                    + "id_curso, "
-                    + "semestre, "
                     + "id_disciplina, "
                     + "periodo, "
                     + "unidadeDeAprendizagem, "
                     + "conteudoSagah, "
                     + "conteudoDesenvolvido, "
                     + "linkDaAulaGravada) "
-                    + "VALUES(?,?,?,?,?,?,?,?,?) ");
+                    + "VALUES(?,?,?,?,?,?,?) ");
             stmt.setInt(1, e.getUsuarioId());
-            stmt.setInt(2, e.getCursoId());
-            stmt.setInt(3, e.getSemestre());
-            stmt.setInt(4, e.getDisciplinaId());
-            stmt.setString(5, e.getPeriodo());
-            stmt.setString(6, e.getUnidadeDeAprendizagem());
-            stmt.setBoolean(7, e.isConteudoSagah());
-            stmt.setString(8, e.getConteudoDesenvolvido());
-            stmt.setString(9, e.getLinkDaAulaGravada());
+            stmt.setInt(2, e.getDisciplinaId());
+            stmt.setString(3, e.getPeriodo());
+            stmt.setString(4, e.getUnidadeDeAprendizagem());
+            stmt.setBoolean(5, e.isConteudoSagah());
+            stmt.setString(6, e.getConteudoDesenvolvido());
+            stmt.setString(7, e.getLinkDaAulaGravada());
             
             result = stmt.execute();
             
@@ -178,8 +166,6 @@ public class AulaRepository implements IRepositoryBase<Aula>
         {
             stmt = conn.prepareStatement("UPDATE aula SET "
                     + "usuario_id = ?, "
-                    + "id_curso = ?, "
-                    + "semestre = ?, "
                     + "id_disciplina = ?, "
                     + "periodo = ?, "
                     + "unidadeDeAprendizagem = ?, "
@@ -188,15 +174,13 @@ public class AulaRepository implements IRepositoryBase<Aula>
                     + "linkDaAulaGravada = ? "
                     + "WHERE id_class = ? ");
             stmt.setInt(1, e.getUsuarioId());
-            stmt.setInt(2, e.getCursoId());
-            stmt.setInt(3, e.getSemestre());
-            stmt.setInt(4, e.getDisciplinaId());
-            stmt.setString(5, e.getPeriodo());
-            stmt.setString(6, e.getUnidadeDeAprendizagem());
-            stmt.setBoolean(7, e.isConteudoSagah());
-            stmt.setString(8, e.getConteudoDesenvolvido());
-            stmt.setString(9, e.getLinkDaAulaGravada());
-            stmt.setInt(10, e.getId());
+            stmt.setInt(2, e.getDisciplinaId());
+            stmt.setString(3, e.getPeriodo());
+            stmt.setString(4, e.getUnidadeDeAprendizagem());
+            stmt.setBoolean(5, e.isConteudoSagah());
+            stmt.setString(6, e.getConteudoDesenvolvido());
+            stmt.setString(7, e.getLinkDaAulaGravada());
+            stmt.setInt(8, e.getId());
             
             result = stmt.execute();
             

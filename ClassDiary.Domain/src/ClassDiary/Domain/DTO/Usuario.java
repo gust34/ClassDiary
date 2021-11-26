@@ -10,8 +10,8 @@ public class Usuario
     private String _email;
     private String _nomeLogin;
     private String _senha;
-    private String _cargo;
-    private String _postoTrabalho;
+    private String _tipo;
+    private String _unidade;
     private Date _dataHora;
     
     /**
@@ -97,33 +97,34 @@ public class Usuario
     public void setSenha(String _senha) {
         this._senha = _senha;
     }
-
-    /**
+    
+        /**
      * @return the _cargo
      */
-    public String getCargo() {
-        return _cargo;
+    public String getTipo() {
+        return _tipo;
     }
 
     /**
-     * @param _cargo the _cargo to set
+     * @param _tipo the _unidade to set
      */
-    public void setCargo(String _cargo) {
-        this._cargo = _cargo;
+    public void setTipo(String _tipo) {
+        this._tipo = _tipo;
+    }
+
+    
+    /**
+     * @return the _unidade
+     */
+    public String getUnidade() {
+        return _unidade;
     }
 
     /**
-     * @return the _postoTrabalho
+     * @param _unidade the _unidade to set
      */
-    public String getPostoTrabalho() {
-        return _postoTrabalho;
-    }
-
-    /**
-     * @param _postoTrabalho the _postoTrabalho to set
-     */
-    public void setPostoTrabalho(String _postoTrabalho) {
-        this._postoTrabalho = _postoTrabalho;
+    public void setUnidade(String _unidade) {
+        this._unidade = _unidade;
     }
 
     /**

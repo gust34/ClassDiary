@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 public class DisciplinaRepository implements IRepositoryBaseReadOnly<Disciplina>
 {
-    ManageDB Context = new ManageDB();
+    ManageDB Context = new ManageDB(0);
     CursoRepository repo;
     
     @Override

@@ -18,21 +18,22 @@ public class ManageDB
     private final String User;
     private final String Pass;
     
-    public ManageDB()
+    public ManageDB(int DB)
     {
         List<Config> AppConfig = ConfigReader.GetAppConfig();
-        
         Driver = "com.mysql.jdbc.Driver";
-        Url = "jdbc:mysql://planoensino.mysql.uhserver.com/planoensino";
-        User = "professorescola";
-        Pass = "@Rescolar2021";
-        /*
-        Driver = AppConfig.stream().filter(x -> "Drive".equals(x.getKey())).findAny().orElse(new Config()).getValue();
-        Url = AppConfig.stream().filter(x -> "Url".equals(x.getKey())).findAny().orElse(new Config()).getValue();
-        User = AppConfig.stream().filter(x -> "User".equals(x.getKey())).findAny().orElse(new Config()).getValue();
-        Pass = AppConfig.stream().filter(x -> "Pass".equals(x.getKey())).findAny().orElse(new Config()).getValue();
-        */
-    
+        if(DB == 1)
+        {
+            Url = "jdbc:mysql://campossalles.mysql.uhserver.com/campossalles";
+            User = "registrousuario";
+            Pass = "@User20212";
+        }
+        else
+        {
+            Url = "jdbc:mysql://planoensino.mysql.uhserver.com/planoensino";
+            User = "professorescola";
+            Pass = "@Rescolar2021";
+        }
     }
     
     public Connection GetConnection()

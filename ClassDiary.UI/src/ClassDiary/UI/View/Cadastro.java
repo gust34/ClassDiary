@@ -130,6 +130,7 @@ public class Cadastro extends javax.swing.JFrame {
         getContentPane().add(rbtnNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, -1));
 
         txtConteudo.setColumns(20);
+        txtConteudo.setLineWrap(true);
         txtConteudo.setRows(5);
         txtConteudo.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtConteudo);
@@ -189,9 +190,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         aula = new Aula();
         aula.setPeriodo(rbtnMatutino.isSelected() ? "Matutino" : "Noturno");
-        aula.setCursoId(((Curso) cmbCurso.getSelectedItem()).getId());
         aula.setDisciplinaId(((Disciplina) cmbDisciplina.getSelectedItem()).getId());
-        aula.setSemestre(((int) cmbSemestre.getSelectedItem()));
         aula.setConteudoSagah(rbtnSim.isSelected());
         aula.setLinkDaAulaGravada(txtLinkDaAula.getText());
         aula.setConteudoDesenvolvido(txtConteudo.getText());

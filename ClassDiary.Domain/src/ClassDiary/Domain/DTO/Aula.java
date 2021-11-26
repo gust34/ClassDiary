@@ -7,10 +7,8 @@ public class Aula
     private int _id;
     private int _usuarioId;
     private Usuario _usuario;
-    private int _cursoId;
-    private Curso _curso;
-    private int _semestre;
     private int _disciplinaId;
+    private Disciplina _displina;
     private String _periodo;
     private String _unidadeDeAprendizagem;
     private boolean _conteudoSagah;
@@ -53,39 +51,11 @@ public class Aula
         return _usuario;
     }
 
-    /**
-     * @return the _cursoId
-     */
-    public int getCursoId() {
-        return _cursoId;
-    }
-
-    /**
-     * @param _cursoId the _cursoId to set
-     */
-    public void setCursoId(int _cursoId) {
-        this._cursoId = _cursoId;
-    }
-
-    /**
+    /*
      * @return the _curso
      */
-    public Curso getCurso() {
-        return _curso;
-    }
-
-    /**
-     * @return the _semestre
-     */
-    public int getSemestre() {
-        return _semestre;
-    }
-
-    /**
-     * @param _semestre the _semestre to set
-     */
-    public void setSemestre(int _semestre) {
-        this._semestre = _semestre;
+    public Disciplina getDisciplina() {
+        return _displina;
     }
 
     /**

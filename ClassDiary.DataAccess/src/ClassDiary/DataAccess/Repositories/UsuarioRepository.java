@@ -20,7 +20,7 @@ public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
     
     public UsuarioRepository()
     {
-        Context = new ManageDB();
+        Context = new ManageDB(1);
         repo = new DisciplinaRepository();
     }
     
@@ -39,10 +39,10 @@ public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
                     + "NomeCompleto, "
                     + "Telefone, "
                     + "Email, "
-                    + "NomeLogin, "
+                    + "Nome, "
                     + "Senha, "
-                    + "Cargo, "
-                    + "PostoTrabalho "
+                    + "Tipo, "
+                    + "UnidadeEscolar "
                     + "FROM usuarios "
                     + "WHERE Id = ?");
             stmt.setInt(1, Id);
@@ -57,10 +57,10 @@ public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
                 e.setNomeCompleto(result.getString("NomeCompleto"));
                 e.setTelefone(result.getString("Telefone"));
                 e.setEmail(result.getString("Email"));
-                e.setNomeLogin(result.getString("NomeLogin"));
+                e.setNomeLogin(result.getString("Nome"));
                 e.setSenha(result.getString("Senha"));
-                e.setCargo(result.getString("Cargo"));
-                e.setPostoTrabalho(result.getString("PostoTrabalho"));
+                e.setTipo(result.getString("Tipo"));
+                e.setUnidade(result.getString("UnidadeEscolar"));
             }
             
             Context.CloseConnection(conn, stmt, result);
@@ -89,10 +89,10 @@ public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
                     + "NomeCompleto, "
                     + "Telefone, "
                     + "Email, "
-                    + "NomeLogin, "
+                    + "Nome, "
                     + "Senha, "
-                    + "Cargo, "
-                    + "PostoTrabalho "
+                    + "Tipo, "
+                    + "UnidadeEscolar "
                     + "FROM usuarios ");
             
             result = stmt.executeQuery();
@@ -105,10 +105,10 @@ public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
                 e.setNomeCompleto(result.getString("NomeCompleto"));
                 e.setTelefone(result.getString("Telefone"));
                 e.setEmail(result.getString("Email"));
-                e.setNomeLogin(result.getString("NomeLogin"));
+                e.setNomeLogin(result.getString("Nome"));
                 e.setSenha(result.getString("Senha"));
-                e.setCargo(result.getString("Cargo"));
-                e.setPostoTrabalho(result.getString("PostoTrabalho"));
+                e.setTipo(result.getString("Tipo"));
+                e.setUnidade(result.getString("UnidadeEscolar"));
                 es.add(e);
             }
             
@@ -136,12 +136,12 @@ public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
                     + "NomeCompleto, "
                     + "Telefone, "
                     + "Email, "
-                    + "NomeLogin, "
+                    + "Nome, "
                     + "Senha, "
-                    + "Cargo, "
-                    + "PostoTrabalho "
+                    + "Tipo, "
+                    + "UnidadeEscolar "
                     + "FROM usuarios "
-                    + "WHERE NomeLogin = ? AND Senha = ?");
+                    + "WHERE Nome = ? AND Senha = ?");
             stmt.setString(1, Login);
             stmt.setString(2, Senha);
             
@@ -155,10 +155,10 @@ public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
                 e.setNomeCompleto(result.getString("NomeCompleto"));
                 e.setTelefone(result.getString("Telefone"));
                 e.setEmail(result.getString("Email"));
-                e.setNomeLogin(result.getString("NomeLogin"));
+                e.setNomeLogin(result.getString("Nome"));
                 e.setSenha(result.getString("Senha"));
-                e.setCargo(result.getString("Cargo"));
-                e.setPostoTrabalho(result.getString("PostoTrabalho"));
+                e.setTipo(result.getString("Tipo"));
+                e.setUnidade(result.getString("UnidadeEscolar"));
             }
             
             Context.CloseConnection(conn, stmt, result);

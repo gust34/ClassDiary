@@ -3,6 +3,7 @@ package ClassDiary.Business.Services;
 import ClassDiary.Common.Services.Result;
 import ClassDiary.DataAccess.Repositories.AulaRepository;
 import ClassDiary.Domain.DTO.Aula;
+import java.util.List;
 
 public class AulaService 
 {
@@ -16,5 +17,10 @@ public class AulaService
     public Result Inserir(Aula e)
     {
         return repo.Add(e);
+    }
+    
+    public List<Aula> GetAll()
+    {
+        return repo.GetAll();
     }
 }
