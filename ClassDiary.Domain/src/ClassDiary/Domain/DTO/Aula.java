@@ -8,7 +8,7 @@ public class Aula
     private int _usuarioId;
     private Usuario _usuario;
     private int _disciplinaId;
-    private Disciplina _displina;
+    private Disciplina _disciplina;
     private String _periodo;
     private String _unidadeDeAprendizagem;
     private boolean _conteudoSagah;
@@ -55,8 +55,16 @@ public class Aula
      * @return the _curso
      */
     public Disciplina getDisciplina() {
-        return _displina;
+        return _disciplina;
     }
+    
+        /**
+     * @param _disciplina the _disciplinaId to set
+     */
+    public void setDisciplina(Disciplina _disciplina) {
+        this._disciplina = _disciplina;
+    }
+
 
     /**
      * @return the _disciplinaId

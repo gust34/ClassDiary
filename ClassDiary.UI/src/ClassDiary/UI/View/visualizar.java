@@ -10,27 +10,33 @@ import javax.swing.table.TableModel;
 public class visualizar extends javax.swing.JFrame 
 {
     AulaService service = new AulaService();
+    
     public visualizar() {
         initComponents();
-        
+        PreencherTabela();
     }
     
     public void PreencherTabela(){
         String[] col = new String [] {
-                "Periodo", "Curso", "Disciplina", "Conteúdo SAGAH", "Link da Aula", "Conteúdo desenvolvido"
-            };        
+                "Periodo", "Curso", "Disciplina", "Unidade de APrendizagem","Conteúdo SAGAH", "Link da Aula", "Conteúdo desenvolvido"
+            };    
        List<Aula> aulas = service.GetAll();
        
-       TableModel modelo = new DefaultTableModel(col,0);
-       
-       TableAula.setModel(modelo);
-       
-       for(int i = 0; i <= aulas.size(); i++)
+       Object aulaInTable[][] = new Object[aulas.size()][7];
+
+       for(int i = 0; i <= aulas.size() - 1; i++)
        {
            Aula aula = aulas.get(i);
-
+           aulaInTable[i][0] = aula.getPeriodo(); 
+           aulaInTable[i][1] = aula.getDisciplina().getCurso().getNome();
+           aulaInTable[i][2] = aula.getDisciplina().getNome();
+           aulaInTable[i][3] = aula.getUnidadeDeAprendizagem();
+           aulaInTable[i][4] = aula.isConteudoSagah();
+           aulaInTable[i][5] = aula.getLinkDaAulaGravada();
+           aulaInTable[i][6] = aula.getConteudoDesenvolvido();
        }
        
+       TableAula.setModel(new DefaultTableModel(aulaInTable,col));
     }
     
 

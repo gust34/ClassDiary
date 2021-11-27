@@ -60,6 +60,11 @@ public class home extends javax.swing.JFrame {
 
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/btnView.png"))); // NOI18N
         jToggleButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 213, 252), 8, true));
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 240, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/background2.png"))); // NOI18N
@@ -72,6 +77,10 @@ public class home extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         new Cadastro (_user.getId()).setVisible(true);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        new visualizar ().setVisible(true);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments

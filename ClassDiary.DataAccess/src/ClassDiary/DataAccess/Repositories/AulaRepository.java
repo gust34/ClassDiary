@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 public class AulaRepository implements IRepositoryBase<Aula>
 {
     ManageDB Context = new ManageDB(0);
+    DisciplinaRepository DisciplinaRepo = new DisciplinaRepository();
     
     @Override
     public Aula Get(int Id) 
@@ -51,6 +52,7 @@ public class AulaRepository implements IRepositoryBase<Aula>
                 e.setId(result.getInt("id_class"));
                 e.setUsuarioId(result.getInt("usuario_id"));
                 e.setDisciplinaId(result.getInt("id_disciplina"));
+                e.setDisciplina(DisciplinaRepo.Get(e.getDisciplinaId()));
                 e.setPeriodo(result.getString("periodo"));
                 e.setUnidadeDeAprendizagem(result.getString("unidadeDeAprendizagem"));
                 e.setConteudoSagah(result.getBoolean("conteudoSagah"));
@@ -98,6 +100,7 @@ public class AulaRepository implements IRepositoryBase<Aula>
                 e.setId(result.getInt("id_class"));
                 e.setUsuarioId(result.getInt("usuario_id"));
                 e.setDisciplinaId(result.getInt("id_disciplina"));
+                e.setDisciplina(DisciplinaRepo.Get(e.getDisciplinaId()));
                 e.setPeriodo(result.getString("periodo"));
                 e.setUnidadeDeAprendizagem(result.getString("unidadeDeAprendizagem"));
                 e.setConteudoSagah(result.getBoolean("conteudoSagah"));

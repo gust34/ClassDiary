@@ -20,7 +20,7 @@ public class UsuarioRepository implements IRepositoryBaseReadOnly<Usuario>
     
     public UsuarioRepository()
     {
-        Context = new ManageDB(1);
+        Context = new ManageDB(0);
         repo = new DisciplinaRepository();
     }
     
